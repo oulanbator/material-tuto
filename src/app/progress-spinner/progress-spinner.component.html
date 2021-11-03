@@ -1,0 +1,41 @@
+<div>
+  <div class="mat-headline">matProgressSpinner</div>
+  <div class="mat-title">A determinate spinner with a value attribute between 0 and 100</div>
+  <mat-progress-spinner value="0"></mat-progress-spinner> 0
+  <mat-progress-spinner value="40"></mat-progress-spinner> 40
+  <mat-progress-spinner value="80"></mat-progress-spinner> 80
+  <mat-progress-spinner value="100"></mat-progress-spinner> 100
+  <br><br>
+
+  <div class="mat-headline">matSpinner</div>
+  <div class="mat-title">An indeterminate spinner that never stops spinning</div>
+  <mat-spinner></mat-spinner>
+  <br><br>
+
+  <div class="mat-title">With some logic for simulating the load of mock data : *ngIf & (click)</div>
+  <button mat-raised-button color="warn" (click)="loadData()">Load Data</button>
+  <mat-spinner *ngIf="showSpinner"></mat-spinner>
+  <br><br>
+
+  <div class="mat-title">Spinner color : color=""</div>
+  <mat-spinner color="accent"></mat-spinner>
+  <mat-spinner color="warn"></mat-spinner>
+  <br><br>
+
+  <div class="mat-title">Spinner size : diameter="" </div>
+  <mat-spinner color="accent" diameter="20"></mat-spinner>20
+  <mat-spinner color="accent" diameter="50"></mat-spinner>50
+  <mat-spinner color="accent" diameter="100"></mat-spinner>100
+  <mat-spinner color="accent" diameter="200"></mat-spinner>200
+  <br><br>
+
+  <div class="mat-title">Spinner weight : strokeWidth="" </div>
+  <mat-spinner color="accent" strokeWidth="1"></mat-spinner>1
+  <mat-spinner color="accent" strokeWidth="5"></mat-spinner>5
+  <mat-spinner color="accent" strokeWidth="10"></mat-spinner>10
+  <mat-spinner color="accent" strokeWidth="100"></mat-spinner>100
+  <mat-spinner color="accent" strokeWidth="1500"></mat-spinner>1500
+  <br><br>
+
+</div>
+<br>

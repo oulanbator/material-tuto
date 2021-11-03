@@ -1,0 +1,42 @@
+<div>
+  <div class="mat-title">Default badge (matBadge=""): top-right</div>
+  <span matBadge="5">Notifications</span>
+  <hr>
+  <div class="mat-headline">Badge Position : matBadgePosition=""</div>
+
+  <span matBadge="5" matBadgePosition="below before">below before</span><br><br>
+  <span matBadge="5" matBadgePosition="below after">below after</span><br><br>
+  <span matBadge="5" matBadgePosition="above before">above before</span><br>
+</div>
+<br>
+<div><hr>
+  <div class="mat-headline">Badge Size : matBadgeSize=""</div>
+  <div class="mat-title">3 default values: small, medium, large</div>
+  <span matBadge="5" matBadgeSize="small">Small</span><br><br>
+  <span matBadge="5" matBadgeSize="medium">Medium</span><br><br>
+  <span matBadge="5" matBadgeSize="large">Large</span>
+</div>
+<br>
+<div><hr>
+  <div class="mat-headline">Badge Color : matBadgeColor=""</div>
+  <div class="mat-title">Use 3 default colors : primary, accent, warn</div>
+  <span matBadge="5" matBadgeColor="primary">Notification</span><br><br>
+  <span matBadge="5" matBadgeColor="accent">Notification</span><br><br>
+  <span matBadge="5" matBadgeColor="warn">Notification</span>
+</div>
+<br>
+<div><hr>
+  <div class="mat-headline">Control overlap : matBadgeOverlap="false"</div>
+  <div class="mat-title">No overlap of the badge with the text</div>
+  <p>Documentation advice : overlap badges for icons (true), but not for text (false)</p>
+  <span matBadge="5" matBadgeColor="warn" matBadgeOverlap="false">Notification</span>
+</div>
+<br>
+<div><hr>
+  <div class="mat-headline">Binding values and conditional rendering</div>
+  <div class="mat-title">Binding values : [matBadge]="notifications"</div>
+  <span [matBadge]="notifications" matBadgeOverlap="false">Notification</span>
+  <br><br>
+  <div class="mat-title">Conditional rendering : [matBadgeHidden]="notifications === 0"</div>
+  <span [matBadge]="notifications" [matBadgeHidden]="notifications === 0" matBadgeOverlap="false">Notification</span>
+</div>

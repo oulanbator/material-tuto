@@ -1,0 +1,35 @@
+<div>
+  <div class="mat-title">>> Presented as good alternative to regular buttons or checkboxes</div>
+  <div class="mat-headline">Using toggle button state</div>
+  <p>add template "reference variable" (#toggleBtn) and access "checked" property (toggleBtn.checked)
+    <br> >>> returns true or false </p>
+  <mat-button-toggle #toggleBtn>Toggle</mat-button-toggle> {{toggleBtn.checked}}
+  <p>By default toggle button state is false. Use "checked" directive to change this :</p>
+  <mat-button-toggle #toggleBtn2 checked>Toggle</mat-button-toggle> {{toggleBtn2.checked}}
+  <p>And disableRipple effect :</p>
+  <mat-button-toggle #toggleBtn3 disableRipple>Toggle</mat-button-toggle> {{toggleBtn3.checked}}
+  <p>Also possible to disable the button :</p>
+  <mat-button-toggle #toggleBtn4 checked disabled>Toggle</mat-button-toggle> {{toggleBtn4.checked}}
+</div>
+<br>
+<div>
+  <div class="mat-title">>> Presented as good alternative to radio buttons or checkboxes</div>
+  <p>Use with "mat-button-toggle-group" tag :</p>
+  <mat-button-toggle-group #toggleGroup="matButtonToggleGroup">
+    <mat-button-toggle value="angular">Angular</mat-button-toggle>
+    <mat-button-toggle value="react">React</mat-button-toggle>
+    <mat-button-toggle value="vue">Vue</mat-button-toggle>
+  </mat-button-toggle-group>
+  {{toggleGroup.value}}
+  <p>We used template reference variable (#toggleGroup), so we can interpolate buttons values (for showing it here)</p>
+  <p>With "multiple" attribute/directive, we have a checkbox behaviour</p>
+  <mat-button-toggle-group #toggleGroup2="matButtonToggleGroup" multiple>
+    <mat-button-toggle value="angular">Angular</mat-button-toggle>
+    <mat-button-toggle value="react">React</mat-button-toggle>
+    <mat-button-toggle value="vue">Vue</mat-button-toggle>
+  </mat-button-toggle-group>
+  {{toggleGroup2.value}}
+  <p>Instead of showing result in HTML, we can listen for (change) event and execute some code in the class component,
+    where we can also use template reference variable for any required operation</p>
+
+</div>
