@@ -1,20 +1,30 @@
-<h1>1 - Simple button</h1>
-<button mat-raised-button>Hello World</button>
+<mat-button-toggle #toggleTypo>1 - Typography</mat-button-toggle>
+<app-typography *ngIf="toggleTypo.checked"></app-typography>
+<br>
 
-<h1>2 - Typography</h1>
-<!--<app-typography></app-typography>-->
+<mat-button-toggle #toggleButtons>2 - Button Element</mat-button-toggle>
+<app-buttons *ngIf="toggleButtons.checked"></app-buttons>
+<br>
 
-<h1>3 - Button Element</h1>
-<!--<app-buttons></app-buttons>-->
+<mat-button-toggle #toggleToggle>3 - Button Toggle (On / Off)</mat-button-toggle>
+<app-button-toggle *ngIf="toggleToggle.checked"></app-button-toggle>
+<br>
 
-<h1>4 - Button Toggle (On / Off)</h1>
-<!--<app-button-toggle></app-button-toggle>-->
+<mat-button-toggle #toggleIcons>4 - Icons</mat-button-toggle>
+<app-icons *ngIf="toggleIcons.checked"></app-icons>
+<br>
 
-<h1>5 - Icons</h1>
-<!--<app-icons></app-icons>-->
+<mat-button-toggle #toggleBadges>5 - Badges</mat-button-toggle>
+<app-badges *ngIf="toggleBadges.checked"></app-badges>
+<br>
 
-<h1>6 - Badges</h1>
-<!--<app-badges></app-badges>-->
+<mat-button-toggle #toggleSpinner>6 - Progress Spinner</mat-button-toggle>
+<app-progress-spinner *ngIf="toggleSpinner.checked"></app-progress-spinner>
+<br>
 
-<h1>7 - Progress Spinner</h1>
-<!--<app-progress-spinner></app-progress-spinner>-->
+<mat-button-toggle #toggleToolbar>7 - Toolbar</mat-button-toggle>
+<app-toolbar *ngIf="toggleToolbar.checked"></app-toolbar>
+<br>
+
+<mat-button-toggle #toggleSidenav checked>8 - Sidenav</mat-button-toggle>
+<app-sidenav *ngIf="toggleSidenav.checked"></app-sidenav>
