@@ -1,16 +1,61 @@
 <div>
-  <div class="mat-headline">Basic sidenav with 3 components</div>
+  <div class="mat-headline">Basic sidenav (based on 3 components)</div>
   <!-- Toolbar code -->
   <mat-sidenav-container>
-    <mat-sidenav opened>Sidenav</mat-sidenav>
+    <mat-sidenav
+      #sidenav
+      [(opened)]="opened"
+      mode="side"
+      (opened)="log('Opened')"
+      (closed)="log('Closed')">
+      Sidenav contents
+    </mat-sidenav>
     <mat-sidenav-content>
+      <button (click)="opened=!opened">Sidenav menu</button>
       <!-- Content of the website -->
-      <p>mat-sidenav-container : access a container
-        <br>mat-sidenav : represent the side content
-        <br>mat-sidenav-content : represent the content</p>
+      <h3>Structure of markup</h3>
+      <p>
+        mat-sidenav-container : access a container<br>
+        mat-sidenav : represent the side content<br>
+        mat-sidenav-content : represent the content
+      </p>
 
-      <p>Sidenav always hidden by default. Can use the opened attribute on mat-sidenav component</p>
-      <p>Some styling are necessary to have à good render : see css</p>
+      <h3>Styling</h3>
+      <p>Some styling are necessary to have à good render : see sidenav.css</p>
+
+      <h3>Hide/Show sidenav</h3>
+      <p>Sidenav always hidden by default : 3 methods</p>
+      <p>
+        Method 1<br>
+        - Can use the "opened" attribute on mat-sidenav component <br>
+        - Better is to bind this attribute to a property so we can trigger and toggle the sidenav
+      </p>
+      <p>
+        Method 2<br>
+        Another way is to call open() and close() methods on template reference variable of the #sidenav <br>
+        <button (click)="sidenav.open()">Open</button>
+        <button (click)="sidenav.close()">Close</button>
+      </p>
+      <p>
+        Method 3<br>
+        Toggle the sidenav using the sidenav.toggle() method <br>
+        <button (click)="sidenav.toggle()">Toggle</button>
+      </p>
+
+      <h3>Hide/Show events</h3>
+      <p>
+        Finally if we want to perform actions upon the opening, and closing of he sidenav, we can listen for
+        the '(opened)' and '(closed)' events. Access directly in the mat-sidenav component, and pass a callback function :
+        here we call the log() method.
+      </p>
+
+      <h3>Different modes for sidenav</h3>
+      <p>
+        Modes : specified with the "mode" attribute on mat-sidenav component (markup tag)<br>
+        - mode="over" (default)<br>
+        - mode="push" (push the content to the right)<br>
+        - mode="side" (push to the right, but content and sidenav are both usable side by side)
+      </p>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

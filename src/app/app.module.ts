@@ -12,6 +12,9 @@ import { BadgesComponent } from './badges/badges.component';
 import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import {FormsModule} from "@angular/forms";
+import { MenusComponent } from './menus/menus.component';
+import { ListsComponent } from './lists/lists.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +26,15 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     BadgesComponent,
     ProgressSpinnerComponent,
     ToolbarComponent,
-    SidenavComponent
+    SidenavComponent,
+    MenusComponent,
+    ListsComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

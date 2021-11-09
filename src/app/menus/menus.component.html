@@ -1,0 +1,73 @@
+<div>
+  <div class="mat-headline">Menus</div>
+  <div class="mat-title">'mat-menu' component > button (with 'mat-menu-item' attribute)</div>
+
+  <mat-menu #appMenu="matMenu" xPosition="after" yPosition="above">
+    <button mat-menu-item [matMenuTriggerFor]="subMenu">Front-End</button>
+    <button mat-menu-item>Back-End</button>
+  </mat-menu>
+
+  <p>
+    By itself, the 'mat-menu' component doesn't render anything <br>
+    It has to be triggered by UI element or programmatically <br><br>
+    Let's add a button to trigger the menu. We associate :<br>
+    - use a template reference var (appMenu) with a directive in the 'mat-menu' component<br>
+    - link the button with the template reference var (appMenu) with matMenuTriggerFor directive
+  </p>
+
+  <button mat-raised-button [matMenuTriggerFor]="appMenu" class="center">Menu</button>
+  <br><br>
+
+  <div class="mat-title">Create a nested menu</div>
+  <p>First let's create the sub-menu (for the Front-end choice in first menu)</p>
+
+  <mat-menu #subMenu="matMenu" xPosition="before" yPosition="above">
+    <button mat-menu-item>Angular</button>
+    <button mat-menu-item>React</button>
+    <button mat-menu-item>Vue</button>
+  </mat-menu>
+
+  <p>Then we add the directive for trigger the sub-menu in the menu item (Front-end)</p>
+
+  <div class="mat-title">Positioning the menus : x & y</div>
+  <p>We can specify xPosition (before or after) and yPosition (above or below) on the 'mat-menu' component</p>
+
+  <div class="mat-title">Lazy rendering</div>
+  <p>
+    By default the menu choices are initialized before the menu is open. <br>
+    We can differ this init, until menu is opened, using ngTemplate directive and matMenuContent attribute.
+    Allows us to have dynamic content as menus choices.<br>
+    Let's create a new menu :
+  </p>
+
+  <mat-menu #lazyMenu="matMenu">
+    <ng-template matMenuContent let-name="name" let-hobby="hobby">
+      <button mat-menu-item>Settings</button>
+      <button mat-menu-item>Hobby : {{hobby}}</button>
+      <button mat-menu-item>Log out {{name}}</button>
+      <button mat-menu-item *ngIf="name==='Tutor'">Only for Tutor</button>
+    </ng-template>
+  </mat-menu>
+
+  <button
+    mat-raised-button
+    [matMenuTriggerData]="{name: 'Totor', hobby: 'football'}"
+    [matMenuTriggerFor]="lazyMenu">
+    Totor
+  </button>
+
+  <button
+    mat-raised-button
+    [matMenuTriggerData]="{name: 'Tutor', hobby: 'teaching'}"
+    [matMenuTriggerFor]="lazyMenu">
+    Tutor
+  </button>
+
+  <p>
+    We create to trigger buttons for this menu. We want the choices to be different. <br>
+    We have to add the [matMenuTriggerData] attribute in the buttons and equals an object with some data <br>
+    Now, on the ng-template tag, we create a local variable : let-name="name" <br>
+    We can then create interpolation with this variable : {{'{{name\}\}'}} <br> <br>
+    We can also make items appears only after checking *ngIf : name == Tutor ?
+  </p>
+</div>

@@ -26,5 +26,13 @@
 <app-toolbar *ngIf="toggleToolbar.checked"></app-toolbar>
 <br>
 
-<mat-button-toggle #toggleSidenav checked>8 - Sidenav</mat-button-toggle>
+<mat-button-toggle #toggleSidenav>8 - Sidenav</mat-button-toggle>
 <app-sidenav *ngIf="toggleSidenav.checked"></app-sidenav>
+<br>
+
+<mat-button-toggle #toggleMenus>9 - Menus</mat-button-toggle>
+<app-menus *ngIf="toggleMenus.checked"></app-menus>
+<br>
+
+<mat-button-toggle #toggleLists checked>10 - Lists</mat-button-toggle>
+<app-lists *ngIf="toggleLists.checked"></app-lists>

@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
+  opened = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  log(state: any) {
+    console.log(state);
+  }
 }
