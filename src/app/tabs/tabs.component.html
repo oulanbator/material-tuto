@@ -1,0 +1,18 @@
+<div>
+  <div class="mat-headline">Tabs</div>
+  <div class="mat-title">mat-tab-group</div>
+  <p>Label is an attribute. Content goes in the markup body</p>
+  <mat-tab-group #tabGroupRef (selectedTabChange)="logChange(tabGroupRef.selectedIndex)">
+    <mat-tab label="Angular">Angular content</mat-tab>
+    <mat-tab label="React">React content</mat-tab>
+    <mat-tab label="Vue">Vue content</mat-tab>
+  </mat-tab-group>
+  <p>
+    Can use the selectedIndex property of the template reference variable (here : tabGroupRef.selectedIndex),
+    to know which tab is active : {{selectedIndex}} <br>
+    Here we use a field in our to and update it, based on event, avoiding ExpressionChangedAfterItHasBeenCheckedError
+  </p>
+  <p>
+    If we want to perform some operations on tab change, we can use the selectedTabChange event.
+  </p>
+</div>

@@ -42,5 +42,13 @@
 <app-grids *ngIf="toggleGrids.checked"></app-grids>
 <br>
 
-<mat-button-toggle #toggleExpansion checked>12 - Expansion Panel</mat-button-toggle>
+<mat-button-toggle #toggleExpansion>12 - Expansion Panel</mat-button-toggle>
 <app-expansion-panel *ngIf="toggleExpansion.checked"></app-expansion-panel>
+<br>
+
+<mat-button-toggle #toggleCards>13 - Cards</mat-button-toggle>
+<app-cards *ngIf="toggleCards.checked"></app-cards>
+<br>
+
+<mat-button-toggle #toggleTabs checked>14 - Tabs</mat-button-toggle>
+<app-tabs *ngIf="toggleTabs.checked"></app-tabs>
