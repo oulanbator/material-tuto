@@ -1,0 +1,73 @@
+<div>
+  <div class="mat-headline">Expansion Panel</div>
+  <div class="mat-title">mat-expansion-panel > mat-expansion-panel-header</div>
+  <p>A panel header can contain a title (mat-panel-title) and a description (mat-panel-description)</p>
+  <mat-expansion-panel>
+<!--    HEADER -->
+    <mat-expansion-panel-header>
+      <mat-panel-title>Angular Fundamentals</mat-panel-title>
+      <mat-panel-description>Total duration : 3H</mat-panel-description>
+    </mat-expansion-panel-header>
+<!--    CONTENT -->
+    <p>This is the panel content. Add some stuff</p>
+    <p>Another paragraph of content here.</p>
+    <p>Any kind of HTML or other components can go here.</p>
+    <mat-divider></mat-divider>
+    <mat-grid-list cols="4">
+      <mat-grid-tile>Tile 1</mat-grid-tile>
+      <mat-grid-tile>Tile 2</mat-grid-tile>
+      <mat-grid-tile>Tile 3</mat-grid-tile>
+    </mat-grid-list>
+<!--    ACTION ROW-->
+    <mat-action-row>
+      <button mat-raised-button>Enroll</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+  <div class="mat-title">Content</div>
+  <p>The panel content is out of the panel-header, but inside mat-expansion-panel. Any kind of HTML can go there.</p>
+
+  <div class="mat-title">mat-action-row</div>
+  <p>Material also provides an action row : usually, you put a button there "Sign" / "Enroll" / "Submit"</p>
+
+  <div class="mat-headline">Accordion</div>
+
+  <mat-accordion multi="true">
+    <mat-expansion-panel>
+      <!--    HEADER -->
+      <mat-expansion-panel-header>
+        <mat-panel-title>Angular Material</mat-panel-title>
+        <mat-panel-description>Total duration : 2H</mat-panel-description>
+      </mat-expansion-panel-header>
+      <!--    CONTENT -->
+      <p>This is the panel content. Add some stuff</p>
+      <!--    ACTION ROW-->
+      <mat-action-row>
+        <button mat-button>Enroll</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <!--    HEADER -->
+      <mat-expansion-panel-header>
+        <mat-panel-title>Angular Test</mat-panel-title>
+        <mat-panel-description>Total duration : 1H</mat-panel-description>
+      </mat-expansion-panel-header>
+      <!--    CONTENT -->
+      <p>This is the panel content. Add some stuff</p>
+      <!--    ACTION ROW-->
+      <mat-action-row>
+        <button mat-button>Enroll</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <div class="mat-title">mat-accordion</div>
+  <p>
+    Basically, it's several expansion panels together. But we want them to work together. <br>
+    If you open a panel, the other should collapse. <br>
+    We just have to wrap them inside a mat-accordion component.
+    >> We can use the multi="true" attribute if we want to open many panels.
+    >> hideToggle attribute to hide the toggle button
+  </p>
+
+</div>

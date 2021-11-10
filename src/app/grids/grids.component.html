@@ -1,0 +1,27 @@
+<div>
+  <div class="mat-headline">Grids</div>
+  <div class="mat-title">mat-grid-list > mat-grid-tile</div>
+  <p>requires a 'cols' attribute</p>
+
+  <mat-grid-list cols="2" rowHeight="fit" style="height: 200px" gutterSize="5px">
+    <mat-grid-tile rowspan="2">Tile 1</mat-grid-tile>
+    <mat-grid-tile>Tile 2</mat-grid-tile>
+    <mat-grid-tile>Tile 3</mat-grid-tile>
+    <mat-grid-tile colspan="2">Tile 4</mat-grid-tile>
+  </mat-grid-list>
+
+  <p>Each tile can take much rows or columns : rowspan & colspan</p>
+
+  <div class="mat-title">Height of a row</div>
+  <p>
+    By default, the height = the width <br>
+    We can overide this : <br>
+    - rowHeight = 100px <br>
+    - a ratio : rowHeight = 2:1 <br>
+    - fit the height based on the container (the mat-grid-list component) : rowHeight = fit <br>
+    (in this case we also need to specify some style)
+  </p>
+
+  <div class="mat-title">GutterSize</div>
+  <p>gutterSize="5px"</p>
+</div>

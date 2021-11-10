@@ -34,5 +34,13 @@
 <app-menus *ngIf="toggleMenus.checked"></app-menus>
 <br>
 
-<mat-button-toggle #toggleLists checked>10 - Lists</mat-button-toggle>
+<mat-button-toggle #toggleLists>10 - Lists</mat-button-toggle>
 <app-lists *ngIf="toggleLists.checked"></app-lists>
+<br>
+
+<mat-button-toggle #toggleGrids>11 - Grids</mat-button-toggle>
+<app-grids *ngIf="toggleGrids.checked"></app-grids>
+<br>
+
+<mat-button-toggle #toggleExpansion checked>12 - Expansion Panel</mat-button-toggle>
+<app-expansion-panel *ngIf="toggleExpansion.checked"></app-expansion-panel>
