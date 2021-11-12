@@ -1,0 +1,51 @@
+<div>
+  <div class="mat-headline">Steppers</div>
+  <div class="mat-title">mat-horizontal-stepper</div>
+  <p>mat-horizontal-stepper > mat-step</p>
+  <p>
+    Stepper also provides previous and next buttons out of the box : <br>
+    button *mat-button *matStepperPrevious
+    button *mat-button *matStepperNext
+  </p>
+  <mat-horizontal-stepper linear>
+    <mat-step label="Address" completed="true">
+      <p>Address Details</p>
+    </mat-step>
+    <mat-step label="Billing" completed="false" optional>
+      <p>Billing Details</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step label="Take an order" completed="false">
+      <p>Order Details</p>
+    </mat-step>
+  </mat-horizontal-stepper>
+
+  <p>
+    We can convert the stepper to a linear stepper to avoid the user going through step without restrictions <br>
+    1 - add the linear attribute to mat-horizontal-stepper component <br>
+    2 - add a completed attribute to each individual step (default to false) <br>
+    Here it is hard coded, but ideally we should use property binding in order to control fulfilment of each step. <br>
+    If interaction is completed, call a method that update completed property to true and allow the user to go further.
+    <br>
+    You can also use the attribute optional on a step
+  </p>
+  <p>Vertical Stepper is the same but with mat-vertical-stepper.</p>
+
+  <div class="mat-title">mat-horizontal-stepper</div>
+  <mat-vertical-stepper linear #stepper>
+    <mat-step label="Address" completed="true">
+      <p>Address Details {{stepper._getFocusIndex()}}</p>
+    </mat-step>
+    <mat-step label="Billing" completed="false" optional>
+      <p>Billing Details {{stepper._getFocusIndex()}}</p>
+    </mat-step>
+    <mat-step label="Take an order" completed="false">
+      <p>Order Details {{stepper._getFocusIndex()}}</p>
+    </mat-step>
+  </mat-vertical-stepper>
+
+  <p>Using a template reference variable allow to get the step index with _getFocusIndex method</p>
+</div>
