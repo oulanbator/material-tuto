@@ -1,0 +1,104 @@
+<div>
+  <div class="mat-headline">Selects</div>
+  <div class="mat-title">mat-form-field > mat-label + mat-select</div>
+<!--  SELECT SAMPLE 1-->
+  <mat-form-field>
+    <mat-label>Topic</mat-label>
+    <mat-select>
+      <mat-option value="angular">Angular</mat-option>
+      <mat-option value="react">React</mat-option>
+      <mat-option value="vue">Vue</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <p>
+    mat-label : label of the select <strong>(has to be outside of the "mat-select" component)</strong><br>
+    mat-option : for each option of the select <br><br>
+    As for the input, we can use : <br>
+    floatLabel (always, never, auto) <br>
+    appearance (legacy, standard, fill, outline) <br>
+    theming: color (primary, accent, warn)
+  </p>
+  <mat-form-field appearance="fill" color="accent">
+    <mat-label>Topic</mat-label>
+    <mat-select>
+      <mat-option value="angular">Angular</mat-option>
+      <mat-option value="react">React</mat-option>
+      <mat-option value="vue">Vue</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline" color="warn">
+    <mat-label>Topic</mat-label>
+    <mat-select>
+      <mat-option value="angular">Angular</mat-option>
+      <mat-option value="react">React</mat-option>
+      <mat-option value="vue">Vue</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <div class="mat-title">Tracking the value</div>
+  <p>
+    To track the value of a select control, we can use two way binding : [(value)] <br>
+    Sometimes you want to clear the value, so we can use a mat-option (None) with no value attribute
+  </p>
+  <p>Selected value : {{selectedValue}}</p>
+  <mat-form-field>
+    <mat-label>Topic</mat-label>
+    <mat-select [(value)]="selectedValue">
+      <mat-option>None</mat-option>
+      <mat-option value="angular">Angular</mat-option>
+      <mat-option value="react">React</mat-option>
+      <mat-option value="vue">Vue</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <div class="mat-title">Grouping options : mat-optgroup</div>
+  <p>
+    We can also group some options together with mat-optgroup > mat-option) <br>
+    'mat-option' (None) stays outside of the groups
+  </p>
+  <p>Selected value : {{selectedValue2}}</p>
+  <mat-form-field>
+    <mat-label>Topic</mat-label>
+    <mat-select [(value)]="selectedValue2">
+      <mat-option>None</mat-option>
+      <mat-optgroup label="Web">
+        <mat-option value="angular">Angular</mat-option>
+        <mat-option value="react">React</mat-option>
+        <mat-option value="vue">Vue</mat-option>
+      </mat-optgroup>
+      <mat-optgroup label="Mobile">
+        <mat-option value="ionic">Ionic</mat-option>
+        <mat-option value="react-native">React Native</mat-option>
+        <mat-option value="flutter">Flutter</mat-option>
+      </mat-optgroup>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="mat-title">Multiple options</div>
+  <p>
+    We can also allow multiple selection : mat-select *multiple
+  </p>
+  <p>Selected value : {{selectedValue3}}</p>
+  <mat-form-field>
+    <mat-label>Topic</mat-label>
+    <mat-select [(value)]="selectedValue3" multiple>
+      <mat-option>None</mat-option>
+      <mat-optgroup label="Web">
+        <mat-option value="angular">Angular</mat-option>
+        <mat-option value="react">React</mat-option>
+        <mat-option value="vue">Vue</mat-option>
+      </mat-optgroup>
+      <mat-optgroup label="Mobile">
+        <mat-option value="ionic">Ionic</mat-option>
+        <mat-option value="react-native">React Native</mat-option>
+        <mat-option value="flutter">Flutter</mat-option>
+      </mat-optgroup>
+    </mat-select>
+  </mat-form-field>
+
+  <p>A best practice could be to use *ngFor for the different options instead of writing them one by one</p>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+
