@@ -1,0 +1,54 @@
+<div>
+  <div class="mat-headline">Checkbox & Radio</div>
+  <div class="mat-title">Simple Checkbox</div>
+<!--Simple checkbox-->
+  <p>Styling and animation out of the box</p>
+  <mat-checkbox>Check-it</mat-checkbox>
+<!--Label position-->
+  <p><strong>*labelPosition</strong> : before, after</p>
+  <mat-checkbox labelPosition="before">Check-it</mat-checkbox>
+<!--Color-->
+  <p><strong>*color</strong> : primary, accent, warn</p>
+  <p>By default : accent color</p>
+  <mat-checkbox color="primary">Check-it</mat-checkbox>
+  <mat-checkbox color="accent">Check-it</mat-checkbox>
+  <mat-checkbox color="warn">Check-it</mat-checkbox>
+  <br><br>
+
+  <div class="mat-title">Simple Radio buttons : mat-radio-group > mat-radio-button</div>
+  <p>
+    By default : color = accent <br>
+    Can change with *color attribute
+  </p>
+  <mat-radio-group>
+    <mat-radio-button value="angular" color="primary">Angular</mat-radio-button>
+    <mat-radio-button value="react">React</mat-radio-button>
+    <mat-radio-button value="vue" color="warn">Vue</mat-radio-button>
+  </mat-radio-group>
+  <br><br>
+
+  <div class="mat-title">Access the value of button (check-box or radio)</div>
+<!--  Radio-->
+  <mat-radio-group [(ngModel)]="radioValue">
+    <mat-radio-button value="angular" color="primary">Angular</mat-radio-button>
+    <mat-radio-button value="react" color="accent">React</mat-radio-button>
+    <mat-radio-button value="vue" color="warn">Vue</mat-radio-button>
+  </mat-radio-group>
+  <p>
+    Use [(ngModel)] on mat-radio-group, and bind to a property in component.ts <br>
+    Radio value : {{radioValue}}
+  </p><br><br>
+<!--  Checkbox-->
+  <mat-checkbox value="angular" [(ngModel)]="checkboxAngular">Angular</mat-checkbox>
+  <mat-checkbox value="react" [(ngModel)]="checkboxReact">React</mat-checkbox>
+  <mat-checkbox value="vue" [(ngModel)]="checkboxVue">Vue</mat-checkbox>
+  <p>
+    Use [(ngModel)] on mat-checkbox, and bind to a property in component.ts <br>
+    Angular value : {{checkboxAngular}} <br>
+    React value : {{checkboxReact}}<br>
+    Vue value : {{checkboxVue}}<br>
+  </p>
+
+  <br><br><br>
+</div>
+
