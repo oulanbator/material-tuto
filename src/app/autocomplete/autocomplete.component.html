@@ -1,0 +1,66 @@
+<div>
+  <div class="mat-headline">Autocomplete</div>
+  <div class="mat-title">form > mat-form-field > mat-autocomplete > mat-option</div>
+
+  <form>
+    <mat-form-field>
+      <input type="text" matInput [matAutocomplete]="auto"/>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of options" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+  <p>
+    We loop through options with *ngFor <br>
+    Add a template reference variable #auto to mat-autocomplete <br>
+    In the input element, we bind a "[matAutocomplete]" property to our template variable "auto" <br>
+  </p>
+
+  <div class="mat-title">Autocomplete with Array of objects</div>
+  <form>
+    <mat-form-field>
+      <input type="text" matInput [matAutocomplete]="auto2"/>
+      <mat-autocomplete #auto2="matAutocomplete" [displayWith]="displayFunction">
+        <mat-option *ngFor="let option of objectOptions" [value]="option">
+          {{option.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+
+  <p>
+    We give the property of the object we want in the options (option.name) <br>
+    To display the correct value in the field after click, we use a displayFunction : see autocomplete.ts <br>
+    In the mat-autocomplete component, we add the [displayWith] directive and assign the function <br>
+  </p>
+
+  <div class="mat-title">Filtered Autocomplete</div>
+  <p>
+    A bit out of scope and requires to understand how Angular Forms works. <br>
+    follow series on youtube : <a href="https://www.youtube.com/c/Codevolution/playlists">Codevolution channel</a>
+  </p>
+  <form>
+    <mat-form-field>
+      <input type="text" matInput [matAutocomplete]="auto3" [formControl]="myControl"/>
+      <mat-autocomplete #auto3="matAutocomplete" [displayWith]="displayFunction">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+  <p>
+    import ReactiveFormsModule <br>
+    import FormControl in autocomplete.ts <br>
+    instantiate new FormControl() <br>
+    [formControl]="myControl" in input element <br>
+    import Observable, map, startWith from rxjs <br>
+    Create new property : filteredOptions <br>
+    implement ngOnInit() lifecycle hook;
+    implement _filter function;
+    *ngFor : loop through filteredOptions with async pipe
+  </p>
+  <br><br>
+</div>
