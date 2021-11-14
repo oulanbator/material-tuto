@@ -1,0 +1,65 @@
+<div>
+  <div class="mat-headline">Date Picker</div>
+  <div class="mat-title">mat-form-field > input + mat-datepicker-toggle + mat-datepicker</div>
+  <p>
+    Material import : <br>
+    MatDatepickerModule <br>
+    MatNativeDateModule
+  </p>
+  <p>
+    Basically, a datepicker is composed of a text input and a calendar pop-up <br>
+    - Add a datepicker toggle, with matSuffix attribute (suffix icon in the input) <br>
+    - Add the datepicker component <br>
+  </p>
+  <mat-form-field>
+    <input matInput [matDatepicker]="myDatePicker"/>
+    <mat-datepicker-toggle matSuffix [for]="myDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #myDatePicker></mat-datepicker>
+  </mat-form-field>
+
+  <p>
+    Then, link the 3 elements together : <br>
+    - mat-datepicker : create a ref variable #myDatePicker<br>
+    - input : [matDatepicker]="myDatePicker" <br>
+    - mat-datepicker-toggle : [for]="myDatePicker"
+  </p>
+
+  <br><br>
+
+  <div class="mat-title">Configurations</div>
+  <p>
+    <strong>Starting view of the calendar</strong> : by default Month View <br>
+    datepicker *startView : year (months in year), multi-year (multiple years)
+  </p>
+  <mat-form-field>
+    <input matInput [matDatepicker]="myDatePicker2"/>
+    <mat-datepicker-toggle matSuffix [for]="myDatePicker2"></mat-datepicker-toggle>
+    <mat-datepicker #myDatePicker2 startView="year"></mat-datepicker>
+  </mat-form-field>
+  <br><br>
+
+  <p>
+    <strong>Minimum and maximum date</strong> <br>
+    Use two date objects in component.ts : min and max<br>
+    Bind to the input component : [min]="minDate" [max]="maxDate"
+  </p>
+  <mat-form-field>
+    <input matInput [matDatepicker]="myDatePicker3" [min]="minDate" [max]="maxDate"/>
+    <mat-datepicker-toggle matSuffix [for]="myDatePicker3"></mat-datepicker-toggle>
+    <mat-datepicker #myDatePicker3 startView="multi-year"></mat-datepicker>
+  </mat-form-field>
+  <br><br>
+  <br><br>
+
+  <p>
+    <strong>Filter dates</strong> : i.e. sundays and saturdays<br>
+    - component.ts : create a dateFilter function <br>
+    - input element : [matDatepickerFilter]="dateFilter"
+  </p>
+  <mat-form-field>
+    <input matInput [matDatepicker]="myDatePicker4" [matDatepickerFilter]="dateFilter"/>
+    <mat-datepicker-toggle matSuffix [for]="myDatePicker4"></mat-datepicker-toggle>
+    <mat-datepicker #myDatePicker4></mat-datepicker>
+  </mat-form-field>
+  <br><br>
+</div>
