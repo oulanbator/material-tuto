@@ -1,0 +1,215 @@
+<div class="mat-headline">Data Table</div>
+<p>
+  3 step : <br>
+  - Define the data source and the columns to be displayed <br>
+  - Define the columns templates <br>
+  - Include the header and rows definitions
+</p>
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="weight">
+    <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="symbol">
+    <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row (click)="logData(row)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<br>
+<div class="mat-title">Define the data source and the columns to be displayed</div>
+<p>
+  The first part to implement a data table is a data source. <br>
+  Here, we have an interface that defines the type of each element. <br>
+  We have an array with 10 elements, each element have properties mentioned in the interface. <br>
+  Important : the interface and the data array are declared outside of the component <br>
+  To use it in the component, we need to create a property and initialise it (dataSoure = ELEMENT_DATA). <br><br>
+  Then we provide the data source to the data table, in the HTML : <br>
+  <strong>mat-table</strong> [dataSource]=""
+</p>
+
+<div class="mat-title">Define the columns templates</div>
+<p>
+  Second step is to define the columns templates. Here 4 columns.. <br>
+  ng-container will not be rendered to the DOM, but provides an element for the matColumnDef directive, <br>
+  which uniquely identifies a column with a key (position, name, weight, symbol) <br>
+  Inside th ng-container element, we have all the config for a given column : <br>
+  *matHeaderCellDef : a template that defines how to display the column header <br>
+  *matCellDef : template that defines how to display the data cells of a given column <br>
+  <br>
+  This two structural directives does not attach any styling to the elements, the styling is made of :<br>
+  mat-header-cell component <br>
+  mat-cell component <br>
+</p>
+<p>
+  For the heading, we just have static text. <br>
+  but for the data cell, we access each row of the data source. <br>
+  <br>
+  So far, we have just define the column template, how it is supposed to look.
+</p>
+
+<div class="mat-title">Include the header and rows definitions</div>
+<p>
+  The final step is to define the rows of the data table. For that we make use of twe more components : <br>
+  - mat-header-row : to define the table header row, and to determine which columns have to be displayed,
+  we use the *matHeaderRowDef and assign the 'displayedColumns' property (array of strings).<br>
+  - mat-row : to define the data rows. With *matRowDef structural directive,
+  we have a variable exported (row) containing th data of a given row  <br>
+  And we have to specify the columns property that contains the order in which the data cells should be rendered.
+</p>
+<br>
+<div class="mat-headline">Exploring Data table</div>
+<p>
+  - <strong>displayedColumns</strong> property : an array with the displayed columns, that controls which columns have to be showed. <br>
+  Removing one removes the column. The order is also respected. Meaning the order of the HTML column templates doesn't matter.<br>
+  The order is only controlled by the displayedColumns property. <br>
+  But the "matColumnDef" attribute must have a value from the displayedColumns property. <br>
+  <br><br>
+  - <strong>mat-row</strong> component (we have two variables declared) : <br>
+  => <strong>row</strong> : helps us get all data and handle events on each row of the data table<br>
+  Here we add for example an (click) event for logging the data of a row. <br>
+  Other possible actions : editing, deleting, navigating to a different route <br>
+  (we'll probably will have to : pass the data, extract the id, and preform the necessary actions...) <br>
+  => <strong>columns</strong> : set to "displayedColumns" and indicates what data has to be displayed <br>
+  <br>
+</p>
+
+<!-----------------------------------------Filtering data table-------------------------------------------------------------------->
+
+<br><mat-divider></mat-divider>
+<div class="mat-headline">Filtering data table</div>
+<p>
+  3 steps : <br><br>
+  - (1) Create <strong>the data source as an instance of MatTableDataSource</strong> class, and pass our data source as an argument <br><br>
+  - (2) Create <strong>an input field</strong> where the user can enter the filter text. Every time the user enter some text,
+  we need to filter the data table. <br>
+  For that we <strong>use the (keyup) event and a callback function applyFilter()</strong>. <br>
+  We pass in the input text, accessed by ($event.target.value) <br>
+  => previous line gets error. See "Trick for accessing value of the event" in component.ts : <br>
+  pass the event ($event) and then : let filterValue = (event.target as HTMLTextAreaElement).value; <br><br>
+  - (3) Create the applyFilter() function and <strong>use the MatTableDataSource.filter</strong> method. <br>
+</p>
+
+
+<mat-table [dataSource]="filteredDataSource" class="mat-elevation-z8">
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="weight">
+    <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="symbol">
+    <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<br>
+<h3>Search</h3>
+<mat-form-field>
+  <input (keyup)="applyFilter($event)" matInput placeholder="Filter"/>
+</mat-form-field>
+
+<!----------------------------------------Sorting data table--------------------------------------------------------------------->
+
+<br><br><mat-divider></mat-divider>
+<div class="mat-headline">Sorting data table</div>
+<p>
+  3 steps : <br><br>
+  - (1) Import the MatSortModule <br> <br>
+  - (2) We need to <strong>add matSort directive to the "mat-table" component</strong><br>
+  And to each column header cell, that will trigger the sorting, we need to <strong>add the mat-sort-header directives</strong>. <br><br>
+  - (3) Add the matSort directive to the data source. In the TS file : <br>
+  => <strong>import MatSort</strong>. <br>
+  => next import and use the ViewChild decorator to get a reference to the mat-sort component. <br>
+  (In the component class, add : @ViewChild(MatSort) sort: MatSort;) <br>
+  XXX /!\ And in ngOnInit() : assign the MatSort component to the sort property of the data table ! NOT WORKING <br>
+  => implements AfterViewInit() and THEN assign the MatSort component to the sort property of the data table !
+</p>
+
+<div class="mat-elevation-z8">
+  <mat-table [dataSource]="sortedDataSource" matSort>
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <mat-header-cell mat-sort-header *matHeaderCellDef> No. </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell mat-sort-header *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="weight">
+      <mat-header-cell mat-sort-header *matHeaderCellDef> Weight </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="symbol">
+      <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns2"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns2;"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+</div>
+<!--------------------------------------Pagination----------------------------------------------------------------------->
+
+<br><br><mat-divider></mat-divider>
+<div class="mat-headline">Pagination</div>
+<p>
+  3 steps : <br><br>
+  - (1) <strong>Import MaterialPaginator</strong> Module <br><br>
+  - (2) <strong>Add the mat-paginator component to the HTML</strong>. Two options to the paginator :  <br>
+  <strong>[pageSizeOptions]="[5, 10, 20]"</strong> <br>
+  <strong>showFirstLastButtons</strong> attribute<br><br>
+  - (3) Provide the MatPaginator directive to the datasource : <br>
+  => <strong>import MatPaginator</strong> in the TS file <br>
+  => use @ViewChild to get a reference to the MatPaginator : <strong>@ViewChild(MatPaginator) paginator: MatPaginator;</strong><br>
+  ngOnInit (!) NOT WORKING... WHYYYY ? <br>
+  => <strong>ngAfterViewInit() : assign the MatPaginator</strong> component to the paginator property of the datasource.
+</p>
+
+<p>
+  Styling issues : wrap the table and the paginator into a div tag. <br>
+  pass the elevation class to the div.
+</p>
