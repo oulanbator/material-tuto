@@ -1,0 +1,34 @@
+<div>
+  <div class="mat-headline">Dialogs</div>
+  <div class="mat-title">See dialog-example component</div>
+
+  <button mat-raised-button (click)="openDialog()">Open Dialog</button>
+
+  <p>
+    A component used as a dialog (dialog-example) has to be included in the entryComponents array (app.module.ts) <br>
+  </p>
+  <p>
+    There are several directive to structure the dialog component, i.e : <br>
+    mat-dialog-close : used on a button for closing the dialog <br>
+  </p>
+  <p>
+    Catch the dialog reference in a variable (dialogRef), and use it to subscribe to the observable <br>
+    I.e : perform actions on closing the dialog <br>
+    Finally we assign a value to the mat-dialog-close directive, which is accessed as the result. <br>
+    We can then use this value in the component.ts regarding the value returned (true or false i.e.)
+  </p>
+  <p>
+    Last point to discuss is passing data to the dialog. <br>
+    First step : pass the data as a 2nd parameter to the dialog open method <br>
+    Second step : use the data is the dialog component (dialog-example.component.ts) :<br>
+    To use the data in the dialog, we have to use the MAT_DIALOG_DATA injection component <br>
+    Import @Inject, Import MAT_DIALOG_DATA, add it to constructor(@Inject(MAT_DIALOG_DATA) public data: any) <br>
+    So basically we are now making the Dialog component capable of receiving any type of data. <br>
+    Now we can simply interpolate the data object in the HTML of the component.
+  </p>
+  <p>
+    If you want to specify width and height for the dialog, we can pass in the configuration object. <br>
+    There are many other properties we can use, based on requirements : check documentation for more info.
+  </p>
+
+</div>
