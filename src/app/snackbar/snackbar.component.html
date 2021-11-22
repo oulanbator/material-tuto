@@ -1,0 +1,50 @@
+<div>
+  <div class="mat-headline">Snackbar</div>
+  <div class="mat-title">(click) = 'openSnackBar()'</div>
+  <p>Create a button to call the snackbar</p>
+
+  <button mat-button (click)="openSnackBar('Item Deleted', 'Dismiss')">
+    Show snackbar
+  </button>
+
+  <p>
+    We need to create the method in component.ts to show the snackBar, using the service MatSnackBar injected in the constructor
+    <br>
+    We also can specify an action for the snackBar. We pass it as 2nd argument to the method.<br>
+    By default, clicking the action, will close the snackbar. <br>
+    Sometimes, you want this action to be "Undo" of an action <br>
+  </p>
+
+  <button mat-button (click)="openSnackBar('Item Deleted', 'Undo')">
+    Delete
+  </button>
+
+  <p>
+    We are alerted that the snackBar is dismissed, or undo, is through observables <br>
+    we create a reference to the opened snackbar (let snackBarRef = ) <br>
+    So, using this ref, we can subscribe to "afterDismissed" or "onAction" observables. <br>
+    Then, we can put the code we want...
+  </p>
+
+  <button mat-button (click)="openSnackBar('Item Deleted', 'Action')">
+    Auto-dismiss
+  </button>
+
+  <p>
+    There is a 3rd parameter to the snackbar service (component.ts), that accepts some configuration in an object<br>
+    The most used : 'duration' property (time before auto-dismiss of the snackbar) <br>
+  </p>
+  <br>
+
+  <div class="mat-title">OpenFromComponent</div>
+  <p>Creates and opens a snackbar with a custom component for the content</p>
+  <p>
+    For simplicity, we create a new component in the component.ts <br>
+    Add to app.module.ts in declarations[], and entryComponents[]... <br>
+    Now add a button and a click handler.
+  </p>
+
+  <button mat-button (click)="openCustomSnackBar()">
+    Show custom snackBar
+  </button>
+</div>

@@ -1,0 +1,38 @@
+<div>
+  <div class="mat-headline">Tooltip</div>
+  <div class="mat-title">Button with tooltip</div>
+  <p>Create a button with *matTooltip attribute</p>
+  <button mat-raised-button matTooltip="A stunning tooltip">Hello</button>
+  <p>
+    By default, position of the tooltip is below the button <br>
+    Can be : before (or left), after (or right), above, below
+  </p>
+  <!--  Before-->
+  <button mat-raised-button
+          matTooltip="A stunning tooltip"
+          matTooltipPosition="before">Before</button>
+  <!--  After-->
+  <button mat-raised-button
+          matTooltip="A stunning tooltip"
+          matTooltipPosition="after">After</button>
+  <!--  Above-->
+  <button mat-raised-button
+          matTooltip="A stunning tooltip"
+          matTooltipPosition="above">Above</button>
+  <!--  Below-->
+  <button mat-raised-button
+          matTooltip="A stunning tooltip"
+          matTooltipPosition="below">Below</button>
+
+  <br>
+  <div class="mat-title">Delays</div>
+  <p>Use *showDelay and *hideDelay</p>
+  <!--  Delay-->
+  <button mat-raised-button
+          matTooltip="A stunning tooltip"
+          matTooltipPosition="after"
+          matTooltipShowDelay="500"
+          matTooltipHideDelay="500">
+    After</button>
+  <br><br><br>
+</div>
